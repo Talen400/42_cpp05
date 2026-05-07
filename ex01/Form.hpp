@@ -7,13 +7,34 @@ class Form
 {
 	private:
 		const std::string	_name;
-		int		min_grade;
-		int		max_grade;
+		int		_min_grade;
+		int		_max_grade;
+		bool	_sign;
 
 	public:
 		Form();
-		Form(const std::string &name,);
-		Form();
+		Form(const std::string &name, int min_grade, int max_grade);
+		Form	&operator=(const Form &other);
+
+		~Form();
+
+		class GradeTooHighException: public std::exception
+		{
+
+		};
+		
+		class GradeTooLowException: public std::exception
+		{
+
+		};
+
+		std::string	getName() const;
+		int			getMinGrade() const;
+		int			getMaxGrade() const;
+		bool		getSign() const;
+
 };
+
+std::ostream	&operator<<(std::ostream &out, const Form &b);
 
 #endif
