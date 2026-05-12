@@ -1,6 +1,15 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int	main(void)
 {
-	std::cout << "Hello, World!" << std::endl;
+	{
+		Form a;
+		Form b(a);
+		Form c = b;
+
+		Form cidade("cidade", 4, 6);
+
+		std::cout << cidade;
+	}
 }
